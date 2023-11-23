@@ -1,43 +1,35 @@
-# Welcome to Jekyll!
+# Bienvenido a Jekyll!
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
+# Este archivo de configuración es para ajustes que afectan a todo tu blog, valores
+# que se espera configurar una vez y editar raramente después de eso. Si te encuentras
+# editando este archivo muy a menudo, considera usar la función de archivos de datos de Jekyll
+# para los datos que necesitas actualizar con frecuencia.
 #
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# Por razones técnicas, este archivo *NO* se recarga automáticamente cuando usas
+# 'bundle exec jekyll serve'. Si cambias este archivo, por favor reinicia el proceso del servidor.
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+# Configuraciones del sitio
+# Estas se utilizan para personalizar tu nuevo sitio. Si miras en los archivos HTML,
+# verás que se accede a ellos a través de {{ site.title }}, {{ site.email }}, y así sucesivamente.
+# Puedes crear cualquier variable personalizada que desees, y estarán accesibles
+# en las plantillas a través de {{ site.myvariable }}.
+title: Application of Convolutional Neural Networks to Time-Domain Astrophysics: 2D Image Analysis of OGLE (Phase-Folded) Light Curves
+email: tu-email@example.com
+description: >-
+  Este sitio presenta la investigación de Monsalves Gonzalez, N. en la aplicación de Redes Neuronales Convolucionales al análisis de curvas de luz plegadas de fase del proyecto OGLE en astrofísica de dominio temporal. Explora innovadores enfoques de análisis de imágenes 2D.
+baseurl: "" # el subpath de tu sitio, ej. /blog
+url: "" # el hostname base & protocolo para tu sitio, ej. http://tusitio.com
+twitter_username: tu_usuario_twitter
+github_username:  tu_usuario_github
 
-# Build settings
+# Configuraciones de compilación
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
+# Excluir del procesamiento.
+# Los siguientes elementos no serán procesados, por defecto. Crea una lista personalizada
+# para sobrescribir la configuración por defecto.
 # exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
