@@ -1,105 +1,97 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página web personal de [Tu Nombre]">
-    <title>[Tu Nombre] - Página Personal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-        }
-        nav {
-            margin: 0;
-            padding: 0;
-            background-color: #444;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-        }
-        section {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Your Name | Astronomer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace a Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js para funcionalidades interactivas -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
-<body>
-    <header>
-        <h1>[Tu Nombre]</h1>
-        <p>Investigador en [Tu campo de investigación]</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">Sobre mí</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#publications">Publicaciones</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ul>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 text-white fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <div class="text-xl font-bold">
+                <a href="#home">Your Name</a>
+            </div>
+            <div>
+                <ul class="flex space-x-4">
+                    <li><a href="#home" class="hover:text-blue-300">Home</a></li>
+                    <li><a href="#research" class="hover:text-blue-300">Research</a></li>
+                    <li><a href="#aboutme" class="hover:text-blue-300">About Me</a></li>
+                    <li><a href="#more" class="hover:text-blue-300">More</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <section id="about">
-        <h2>Sobre mí</h2>
-        <p>Soy un investigador especializado en [Tu campo de investigación]. Actualmente trabajo en proyectos relacionados con [describe brevemente tu área de estudio]. Mi investigación se enfoca en [describe tu investigación de manera concisa].</p>
-    </section>
+    <!-- Main Content -->
+    <main class="flex-grow mt-16">
+        <!-- Home Section -->
+        <section id="home" class="container mx-auto text-center py-20">
+            <img src="assets/your-photo.jpg" alt="Your Photo" class="w-40 h-40 mx-auto rounded-full shadow-lg">
+            <h1 class="text-4xl font-bold mt-4">Welcome to My Page!</h1>
+            <p class="text-xl mt-2">I am [Your Name], a professional astronomer specializing in [Your Field].</p>
+        </section>
 
-    <section id="projects">
-        <h2>Proyectos</h2>
-        <ul>
-            <li><strong>Proyecto 1:</strong> Breve descripción de este proyecto.</li>
-            <li><strong>Proyecto 2:</strong> Breve descripción de este proyecto.</li>
-            <li><strong>Proyecto 3:</strong> Breve descripción de este proyecto.</li>
-        </ul>
-    </section>
+        <!-- Research Section -->
+        <section id="research" class="bg-white py-20">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-10">Research</h2>
+                <p class="text-xl text-justify mx-4">[Describe your research here. Include your interests, current projects, and any other relevant information.]</p>
+                <!-- Publications -->
+                <div class="mt-10">
+                    <h3 class="text-2xl font-semibold mb-6">Publications</h3>
+                    <ul class="space-y-4">
+                        <!-- Repeat this list item for each publication -->
+                        <li>
+                            <a href="[Publication Link]" target="_blank" class="text-blue-600 hover:underline">
+                                <strong>[Publication Title]</strong>
+                            </a>
+                            <p class="text-gray-700">[Authors] - <em>[Journal/Conference]</em>, [Year]</p>
+                        </li>
+                        <!-- End of list item -->
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <section id="publications">
-        <h2>Publicaciones</h2>
-        <ul>
-            <li><strong>Título de la publicación 1</strong> - Publicada en [Nombre de la revista] (Año).</li>
-            <li><strong>Título de la publicación 2</strong> - Publicada en [Nombre de la revista] (Año).</li>
-            <li><strong>Título de la publicación 3</strong> - Publicada en [Nombre de la revista] (Año).</li>
-        </ul>
-    </section>
+        <!-- About Me Section -->
+        <section id="aboutme" class="container mx-auto py-20">
+            <h2 class="text-3xl font-bold text-center mb-10">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <img src="assets/your-photo-2.jpg" alt="Your Photo" class="w-64 h-64 rounded-full shadow-lg mx-auto md:mx-0">
+                <div class="md:ml-10 mt-6 md:mt-0">
+                    <p class="text-xl text-justify">[Write about your background, education, experience, and any other details you'd like to share.]</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="contact">
-        <h2>Contacto</h2>
-        <p>Puedes contactarme a través de mi correo electrónico: <a href="mailto:tucorreo@dominio.com">tucorreo@dominio.com</a></p>
-    </section>
+        <!-- More Section -->
+        <section id="more" class="bg-white py-20">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-10">More</h2>
+                <p class="text-xl text-justify mx-4">[Include any additional information, such as outreach activities, hobbies, or projects.]</p>
+                <!-- Links or additional content -->
+                <div class="mt-10 text-center">
+                    <a href="CV.pdf" target="_blank" class="text-blue-600 hover:underline text-xl">Download My CV</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <footer>
-        <p>&copy; 2024 [Tu Nombre] - Todos los derechos reservados.</p>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-4">
+        <div class="container mx-auto">
+            <p>&copy; 2024 [Your Name]. All rights reserved.</p>
+            <p>Background Image Credit: [Credit if applicable]</p>
+        </div>
     </footer>
 </body>
 </html>
