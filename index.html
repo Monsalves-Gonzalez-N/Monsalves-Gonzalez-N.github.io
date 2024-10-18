@@ -20,6 +20,22 @@
             background-attachment: fixed;
             color: #fff; /* Set text color to white */
         }
+                /* Styling for images */
+        img.profile-pic {
+            width: 450px; /* Cambiado de 150px a 450px */
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+            border: 3px solid #ffcc00;
+        }
+        
+        img.medium-width {
+            width: 70%; /* Adjust the percentage to control the size */
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
 
         /* Smooth transition for page elements */
         * {
@@ -107,13 +123,6 @@
         }
 
         /* Styling for images */
-        img.profile-pic {
-            width: 150px;
-            border-radius: 50%;
-            display: block;
-            margin: 20px auto;
-            border: 3px solid #ffcc00;
-        }
 
         img.full-width {
             width: 100%;
@@ -182,7 +191,7 @@
             }
 
             img.profile-pic {
-                width: 120px;
+                width: 360px;
             }
         }
     </style>
@@ -215,7 +224,7 @@
             <p>My research has been focused, on one side, on photometric stellar variability, particularly periodic variable stars. Through these studies, we can unveil fundamental astrophysical laws, such as the period-luminosity relation and test models of stellar structure and evolution. In preparation for upcoming multi-epoch photometric surveys and their spectroscopic counterparts (e.g., Vera Rubin and 4MOST), I have been working on the efficient classification of periodic variable stars in large datasets. On the other side, I am interested in massive stars, specifically eclipsing binaries. From these objects, we can estimate dynamical masses, constrain stellar evolution models and binary interaction products. In order to progress in the knowledge of the aforementioned areas, I have been training myself in the use of advanced data processing techniques such as machine learning, in particular deep learning techniques.</p>
             
             <h2>Stellar Variability</h2> 
-            <p>In this area, I developed a general framework to classify periodic variable stars and detect faulty periods efficiently. My deep learning algorithm distinguishes between seven types of variable stars, including Classical Cepheid, RR Lyrae, and Eclipsing Binaries. The model also identifies incorrect periods, essential for refining astrophysical relationships such as the period-luminosity law. The algorithm achieves high accuracy while significantly improving computational efficiency.</p>
+            <p> My early research focused on the eccentricity of eclipsing binaries, aiming to address circularization and the impact of tidal forces. I realized that inaccurate period estimations limited our ability to observe periodic light curves and accurately estimate orbital eccentricity. Due to the inability to isolate this problem, I developed a general framework to classify periodic variable stars and detect faulty periods efficiently. My deep learning algorithm distinguishes between seven types of variable stars, including Classical Cepheid, RR Lyrae, and Eclipsing Binaries. The methodology achieved a performance similar to other deep learning and machine learning approaches. However, our method has two main advantages over previous studies: (1) the identification of miscalculated periods, which is fundamental for obtaining astrophysical relationships, such as the period-luminosity, and (2) the improvement in computational time cost. <li><a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240811960M/abstract">Link to the work</a></li> </p>
             <img src="assets/img/architecture.jpg" alt="Stellar variability" class="full-width">
     
             <h2>Massive Stars</h2>
@@ -228,16 +237,26 @@
     <section id="aboutme">
         <div class="content-wrapper">
             <h1>About Me</h1>
-            <p>My academic journey began at the University of La Serena. This close-knit environment allowed me to build strong relationships with my professors and colleagues.</p>
-            <img src="assets/img/uls.jpg" alt="University of La Serena" class="full-width">
+            <p>My academic journey began at the University of La Serena, where I joined a small but growing astronomy group. This close-knit environment allowed me to build strong relationships with my professors and colleagues. After completing my undergraduate degree, I won the ANID scholarship, which enabled me to pursue a PhD at the University.</p>
+            <img src="assets/img/uls.jpg" alt="University of La Serena" class="medium-width">
     
             <h2>La Serena School for Data Science</h2>
             <p>I have actively participated in the "La Serena School for Data Science: Applied Tools for Data-Driven Sciences," organized by the Association of Universities for Research in Astronomy (AURA). In 2021, I was selected as a student, and since then, I have been participating as a Teacher Assistant every year. I love teaching and helping students realize their potential in the exciting field of data science.</p>
             <img src="assets/img/lssds.jpg" alt="La Serena School for Data Science" class="full-width">
-    
+            <p class="image-credit">© 2023 NOIRLab/NSF/AURA/G.Damke</p>
             <h2>Hobbies</h2>
-            <p>Outside of work, I enjoy the outdoors, spending time at the beach and drinking mate. I am also a big fan of beach volleyball, surfing, and football.</p>
-            <img src="assets/img/surf.jpg" alt="Hobbies" class="full-width">
+<p>Outside of work, I enjoy:</p>
+<ul>
+    <li>Spending time at the beach</li>
+    <li>Reading books</li>
+    <li>Drinking mate</li>
+    <li>Beach volleyball (both beach and indoor)</li>
+    <li>Surfing</li>
+    <li>Cruising on a longboard</li>
+    <li>Football</li>
+    <li>Ping Pong</li>
+</ul>
+
         </div>
     </section>
 
@@ -250,6 +269,8 @@
                 <li><a href="https://orcid.org/0000-0002-4129-8195" target="_blank">ORCID</a></li>
                 <li><a href="mailto:nicolas.monsalves@userena.cl">Email</a></li>
                 <li><a href="https://github.com/Monsalves-Gonzalez-N" target="_blank">GitHub</a></li>
+                <li><a href="https://drive.google.com/file/d/1s-HoVrCjv8QBchnAiw2E2lzm7EnjOrGY/view?usp=sharing" target="_blank">CV</a></li>
+                
             </ul>
         </div>
     </section>
@@ -276,5 +297,7 @@
     </script>
 </body>
 </html>
+
+
 
 
