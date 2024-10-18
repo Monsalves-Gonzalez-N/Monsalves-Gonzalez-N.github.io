@@ -2,97 +2,248 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Name | Astronomer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Enlace al archivo CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Enlace a Tailwind CSS desde CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Alpine.js para funcionalidades interactivas -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!-- Favicon -->
-    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal page of Nicolás Monsalves">
+    <title>Nicolás Monsalves - Personal Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/img/favicon.png">
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Set background to black */
+            color: #fff; /* Set text color to white */
+        }
+
+        /* Smooth transition for page elements */
+        * {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Navigation bar */
+        nav {
+            background-image: url('assets/img/background.jpg'); /* Semi-transparent black */
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        /* Section styling */
+        section {
+            display: none;
+            padding: 100px 20px 20px; /* Offset for fixed nav */
+            min-height: 100vh;
+            background-color: rgba(25, 25, 25, 0.9); /* Dark semi-transparent background */
+            color: #fff;
+            margin-bottom: 60px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        section.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Styling for headings */
+        h1 {
+            font-size: 2.5em;
+            color: #ffcc00; /* Gold color */
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffcc00;
+            text-align: center;
+        }
+
+        /* Style for paragraphs */
+        p {
+            text-align: justify;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Styling for images */
+        img {
+            width: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+            border: 3px solid #ffcc00;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+            color: #000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            background-color: #ff9900;
+            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Add smooth transition between sections */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hover effect for links */
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive design for smaller devices */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            img {
+                width: 120px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 flex flex-col min-h-screen">
-    <!-- Navbar -->
-    <nav class="bg-gray-800 text-white fixed w-full z-10">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <div class="text-xl font-bold">
-                <a href="#home">Your Name</a>
-            </div>
-            <div>
-                <ul class="flex space-x-4">
-                    <li><a href="#home" class="hover:text-blue-300">Home</a></li>
-                    <li><a href="#research" class="hover:text-blue-300">Research</a></li>
-                    <li><a href="#aboutme" class="hover:text-blue-300">About Me</a></li>
-                    <li><a href="#more" class="hover:text-blue-300">More</a></li>
-                </ul>
-            </div>
-        </div>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('research')">Research</a></li>
+            <li><a href="#" onclick="showSection('aboutme')">About Me</a></li>
+            <li><a href="#" onclick="showSection('more')">More</a></li>
+        </ul>
     </nav>
 
-    <!-- Main Content -->
-    <main class="flex-grow mt-16">
-        <!-- Home Section -->
-        <section id="home" class="container mx-auto text-center py-20">
-            <img src="assets/your-photo.jpg" alt="Your Photo" class="w-40 h-40 mx-auto rounded-full shadow-lg">
-            <h1 class="text-4xl font-bold mt-4">Welcome to My Page!</h1>
-            <p class="text-xl mt-2">I am [Your Name], a professional astronomer specializing in [Your Field].</p>
-        </section>
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <h1>Nicolás Monsalves</h1>
+        <p>I am Nicolás Monsalves, a PhD candidate in astrophysical research. I am currently finalizing my PhD at the University of La Serena, Chile. My work focuses on the observational characterization of massive stars, particularly those in binary systems. These stars are rare and complex, presenting unique challenges in astrophysical research. I am passionate about deep learning and machine learning techniques, which are critical for managing the large datasets in modern astronomy and addressing key questions in star evolution.</p>
+        <img src="assets/img/mi_foto.jpg" alt="Nicolás Monsalves">
+    </section>
 
-        <!-- Research Section -->
-        <section id="research" class="bg-white py-20">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-10">Research</h2>
-                <p class="text-xl text-justify mx-4">[Describe your research here. Include your interests, current projects, and any other relevant information.]</p>
-                <!-- Publications -->
-                <div class="mt-10">
-                    <h3 class="text-2xl font-semibold mb-6">Publications</h3>
-                    <ul class="space-y-4">
-                        <!-- Repeat this list item for each publication -->
-                        <li>
-                            <a href="[Publication Link]" target="_blank" class="text-blue-600 hover:underline">
-                                <strong>[Publication Title]</strong>
-                            </a>
-                            <p class="text-gray-700">[Authors] - <em>[Journal/Conference]</em>, [Year]</p>
-                        </li>
-                        <!-- End of list item -->
-                    </ul>
-                </div>
-            </div>
-        </section>
+    <!-- Research Section -->
+    <section id="research">
+        <h1>My Research</h1>
+        <p>My research has been focused, on one side, on photometric stellar variability, particularly periodic variable stars. Through these studies, we can unveil fundamental astrophysical laws, such as the period-luminosity relation and test models of stellar structure and evolution. In preparation for upcoming multi-epoch photometric surveys and their spectroscopic counterparts (e.g., Vera Rubin and 4MOST), I have been working on the efficient classification of periodic variable stars in large datasets. On the other side, I am interested in massive stars, specifically eclipsing binaries. From these objects, we can estimate dynamical masses, constrain stellar evolution models and binary interaction products. In order to progress in the knowledge of the aforementioned areas, I have been training myself in the use of advanced data processing techniques such as machine learning, in particular deep learning techniques.</p>
+        
+        <h2>Stellar Variability</h2> 
+        <p>In this area, I developed a general framework to classify periodic variable stars and detect faulty periods efficiently. My deep learning algorithm distinguishes between seven types of variable stars, including Classical Cepheid, RR Lyrae, and Eclipsing Binaries. The model also identifies incorrect periods, essential for refining astrophysical relationships such as the period-luminosity law. The algorithm achieves high accuracy while significantly improving computational efficiency.</p>
+        <img src="assets/img/stellar_variability.jpg" alt="Stellar variability">
 
-        <!-- About Me Section -->
-        <section id="aboutme" class="container mx-auto py-20">
-            <h2 class="text-3xl font-bold text-center mb-10">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <img src="assets/your-photo-2.jpg" alt="Your Photo" class="w-64 h-64 rounded-full shadow-lg mx-auto md:mx-0">
-                <div class="md:ml-10 mt-6 md:mt-0">
-                    <p class="text-xl text-justify">[Write about your background, education, experience, and any other details you'd like to share.]</p>
-                </div>
-            </div>
-        </section>
+        <h2>Massive Stars</h2>
+        <p>My second research focus is on massive stars. I have extended the Hot Luminous OBA star candidate catalog using Gaia DR3 data and developed a balanced random forest algorithm to identify O and early B-type stars. Our new sample, limited to stars with G < 12 magnitude, doubles the known number of massive stars. Additionally, we implemented an automated method for detecting spectral lines and calculating equivalent widths (EW) from large-scale spectral datasets such as LAMOST.</p>
+        <img src="assets/img/massive_stars.jpg" alt="Massive stars">
+    </section>
 
-        <!-- More Section -->
-        <section id="more" class="bg-white py-20">
-            <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-10">More</h2>
-                <p class="text-xl text-justify mx-4">[Include any additional information, such as outreach activities, hobbies, or projects.]</p>
-                <!-- Links or additional content -->
-                <div class="mt-10 text-center">
-                    <a href="CV.pdf" target="_blank" class="text-blue-600 hover:underline text-xl">Download My CV</a>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- About Me Section -->
+    <section id="aboutme">
+        <h1>About Me</h1>
+        <p>My academic journey began at the University of La Serena. This close-knit environment allowed me to build strong relationships with my professors and colleagues.</p>
+        <img src="assets/img/laserena.jpg" alt="University of La Serena">
+
+        <h2>La Serena School for Data Science</h2>
+        <p>I have actively participated in the "La Serena School for Data Science: Applied Tools for Data-Driven Sciences," organized by the Association of Universities for Research in Astronomy (AURA). In 2021, I was selected as a student, and since then, I have been participating as a Teacher Assistant every year. I love teaching and helping students realize their potential in the exciting field of data science.</p>
+        <img src="assets/img/lssds.jpg" alt="La Serena School for Data Science">
+
+        <h2>Hobbies</h2>
+        <p>Outside of work, I enjoy the outdoors, spending time at the beach, drinking mate, and hiking in the mountains. I am also a big fan of beach volleyball, surfing, and football.</p>
+        <img src="assets/img/hobbies.jpg" alt="Hobbies">
+    </section>
+
+    <!-- More Section -->
+    <section id="more">
+        <h1>More Information</h1>
+        <p>Here you can find additional details about my collaborations and ongoing projects.</p>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center p-4">
-        <div class="container mx-auto">
-            <p>&copy; 2024 [Your Name]. All rights reserved.</p>
-            <p>Background Image Credit: [Credit if applicable]</p>
-        </div>
+    <footer>
+        <p>&copy; 2024 Nicolás Monsalves | All rights reserved.</p>
     </footer>
+
+    <script>
+        // Function to display the active section with a fade-in effect
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.opacity = '0';
+            });
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+            setTimeout(() => {
+                activeSection.style.opacity = '1';
+            }, 50);
+        }
+    </script>
 </body>
 </html>
+
+
 
