@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/img/favicon.png">
     <style>
         /* General styling */
-         body {
+        body {
             font-family: 'Helvetica', sans-serif;
             margin: 0;
             padding: 0;
@@ -19,6 +19,11 @@
             background-position: center center;
             background-attachment: fixed;
             color: #fff; /* Set text color to white */
+        }
+
+        /* Smooth transition for page elements */
+        * {
+            transition: all 0.3s ease-in-out;
         }
 
         /* Navigation bar */
@@ -60,10 +65,9 @@
             display: none;
             padding: 100px 20px 20px; /* Offset for fixed nav */
             min-height: 100vh;
-            background-color: rgba(25, 25, 25, 0.9); /* Dark semi-transparent background */
+            /* Remove background color to make sections transparent */
             color: #fff;
             margin-bottom: 60px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
         }
@@ -73,11 +77,21 @@
             opacity: 1;
         }
 
+        /* Content wrapper with semi-transparent background */
+        .content-wrapper {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
         /* Styling for headings */
         h1 {
             font-size: 2.5em;
             color: #ffcc00; /* Gold color */
             text-align: center;
+            margin-top: 0;
         }
 
         h2 {
@@ -90,12 +104,10 @@
             text-align: justify;
             font-size: 1.1em;
             line-height: 1.6em;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         /* Styling for images */
-        img {
+        img.profile-pic {
             width: 150px;
             border-radius: 50%;
             display: block;
@@ -109,7 +121,7 @@
 
         /* Footer */
         footer {
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 10px;
             text-align: center;
@@ -161,7 +173,7 @@
                 font-size: 1em;
             }
 
-            img {
+            img.profile-pic {
                 width: 120px;
             }
         }
@@ -181,44 +193,52 @@
 
     <!-- Home Section -->
     <section id="home" class="active">
-        <h1>Nicolás Monsalves</h1>
-        <p>I am Nicolás Monsalves, a PhD candidate in astrophysical research. I am currently finalizing my PhD at the University of La Serena, Chile. My work focuses on the observational characterization of massive stars, particularly those in binary systems. These stars are rare and complex, presenting unique challenges in astrophysical research. I am passionate about deep learning and machine learning techniques, which are critical for managing the large datasets in modern astronomy and addressing key questions in star evolution.</p>
-        <img src="assets/img/mi_foto.jpg" alt="Nicolás Monsalves">
+        <div class="content-wrapper">
+            <h1>Nicolás Monsalves</h1>
+            <p>I am Nicolás Monsalves, a PhD candidate in astrophysical research. I am currently finalizing my PhD at the University of La Serena, Chile. My work focuses on the observational characterization of massive stars, particularly those in binary systems. These stars are rare and complex, presenting unique challenges in astrophysical research. I am passionate about deep learning and machine learning techniques, which are critical for managing the large datasets in modern astronomy and addressing key questions in star evolution.</p>
+            <img src="assets/img/mi_foto.jpg" alt="Nicolás Monsalves" class="profile-pic">
+        </div>
     </section>
 
     <!-- Research Section -->
     <section id="research">
-        <h1>My Research</h1>
-        <p>My research has been focused, on one side, on photometric stellar variability, particularly periodic variable stars. Through these studies, we can unveil fundamental astrophysical laws, such as the period-luminosity relation and test models of stellar structure and evolution. In preparation for upcoming multi-epoch photometric surveys and their spectroscopic counterparts (e.g., Vera Rubin and 4MOST), I have been working on the efficient classification of periodic variable stars in large datasets. On the other side, I am interested in massive stars, specifically eclipsing binaries. From these objects, we can estimate dynamical masses, constrain stellar evolution models and binary interaction products. In order to progress in the knowledge of the aforementioned areas, I have been training myself in the use of advanced data processing techniques such as machine learning, in particular deep learning techniques.</p>
-        
-        <h2>Stellar Variability</h2> 
-        <p>In this area, I developed a general framework to classify periodic variable stars and detect faulty periods efficiently. My deep learning algorithm distinguishes between seven types of variable stars, including Classical Cepheid, RR Lyrae, and Eclipsing Binaries. The model also identifies incorrect periods, essential for refining astrophysical relationships such as the period-luminosity law. The algorithm achieves high accuracy while significantly improving computational efficiency.</p>
-        <img src="assets/img/stellar_variability.jpg" alt="Stellar variability">
-
-        <h2>Massive Stars</h2>
-        <p>My second research focus is on massive stars. I have extended the Hot Luminous OBA star candidate catalog using Gaia DR3 data and developed a balanced random forest algorithm to identify O and early B-type stars. Our new sample, limited to stars with G < 12 magnitude, doubles the known number of massive stars. Additionally, we implemented an automated method for detecting spectral lines and calculating equivalent widths (EW) from large-scale spectral datasets such as LAMOST.</p>
-        <img src="assets/img/massive_stars.jpg" alt="Massive stars">
+        <div class="content-wrapper">
+            <h1>My Research</h1>
+            <p>My research has been focused, on one side, on photometric stellar variability, particularly periodic variable stars. Through these studies, we can unveil fundamental astrophysical laws, such as the period-luminosity relation and test models of stellar structure and evolution. In preparation for upcoming multi-epoch photometric surveys and their spectroscopic counterparts (e.g., Vera Rubin and 4MOST), I have been working on the efficient classification of periodic variable stars in large datasets. On the other side, I am interested in massive stars, specifically eclipsing binaries. From these objects, we can estimate dynamical masses, constrain stellar evolution models and binary interaction products. In order to progress in the knowledge of the aforementioned areas, I have been training myself in the use of advanced data processing techniques such as machine learning, in particular deep learning techniques.</p>
+            
+            <h2>Stellar Variability</h2> 
+            <p>In this area, I developed a general framework to classify periodic variable stars and detect faulty periods efficiently. My deep learning algorithm distinguishes between seven types of variable stars, including Classical Cepheid, RR Lyrae, and Eclipsing Binaries. The model also identifies incorrect periods, essential for refining astrophysical relationships such as the period-luminosity law. The algorithm achieves high accuracy while significantly improving computational efficiency.</p>
+            <img src="assets/img/stellar_variability.jpg" alt="Stellar variability">
+    
+            <h2>Massive Stars</h2>
+            <p>My second research focus is on massive stars. I have extended the Hot Luminous OBA star candidate catalog using Gaia DR3 data and developed a balanced random forest algorithm to identify O and early B-type stars. Our new sample, limited to stars with G &lt; 12 magnitude, doubles the known number of massive stars. Additionally, we implemented an automated method for detecting spectral lines and calculating equivalent widths (EW) from large-scale spectral datasets such as LAMOST.</p>
+            <img src="assets/img/massive_stars.jpg" alt="Massive stars">
+        </div>
     </section>
 
     <!-- About Me Section -->
     <section id="aboutme">
-        <h1>About Me</h1>
-        <p>My academic journey began at the University of La Serena. This close-knit environment allowed me to build strong relationships with my professors and colleagues.</p>
-        <img src="assets/img/laserena.jpg" alt="University of La Serena">
-
-        <h2>La Serena School for Data Science</h2>
-        <p>I have actively participated in the "La Serena School for Data Science: Applied Tools for Data-Driven Sciences," organized by the Association of Universities for Research in Astronomy (AURA). In 2021, I was selected as a student, and since then, I have been participating as a Teacher Assistant every year. I love teaching and helping students realize their potential in the exciting field of data science.</p>
-        <img src="assets/img/lssds.jpg" alt="La Serena School for Data Science">
-
-        <h2>Hobbies</h2>
-        <p>Outside of work, I enjoy the outdoors, spending time at the beach, drinking mate, and hiking in the mountains. I am also a big fan of beach volleyball, surfing, and football.</p>
-        <img src="assets/img/hobbies.jpg" alt="Hobbies">
+        <div class="content-wrapper">
+            <h1>About Me</h1>
+            <p>My academic journey began at the University of La Serena. This close-knit environment allowed me to build strong relationships with my professors and colleagues.</p>
+            <img src="assets/img/laserena.jpg" alt="University of La Serena">
+    
+            <h2>La Serena School for Data Science</h2>
+            <p>I have actively participated in the "La Serena School for Data Science: Applied Tools for Data-Driven Sciences," organized by the Association of Universities for Research in Astronomy (AURA). In 2021, I was selected as a student, and since then, I have been participating as a Teacher Assistant every year. I love teaching and helping students realize their potential in the exciting field of data science.</p>
+            <img src="assets/img/lssds.jpg" alt="La Serena School for Data Science">
+    
+            <h2>Hobbies</h2>
+            <p>Outside of work, I enjoy the outdoors, spending time at the beach, drinking mate, and hiking in the mountains. I am also a big fan of beach volleyball, surfing, and football.</p>
+            <img src="assets/img/hobbies.jpg" alt="Hobbies">
+        </div>
     </section>
 
     <!-- More Section -->
     <section id="more">
-        <h1>More Information</h1>
-        <p>Here you can find additional details about my collaborations and ongoing projects.</p>
+        <div class="content-wrapper">
+            <h1>More Information</h1>
+            <p>Here you can find additional details about my collaborations and ongoing projects.</p>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -243,6 +263,7 @@
     </script>
 </body>
 </html>
+
 
 
 
