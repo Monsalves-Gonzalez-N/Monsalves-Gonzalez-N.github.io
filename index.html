@@ -7,230 +7,76 @@
     <title>Nicolás Monsalves - Personal Page</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/img/favicon.png">
-    <style>
-        /* General styling */
-        body {
-            font-family: 'Helvetica', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('assets/img/background.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            color: #fff; /* Set text color to white */
-        }
-                /* Styling for images */
-        img.profile-pic {
-            width: 450px; /* Cambiado de 150px a 450px */
-            border-radius: 50%;
-            display: block;
-            margin: 20px auto;
-            border: 3px solid #ffcc00;
-        }
-        
-        img.medium-width {
-            width: 70%; /* Adjust the percentage to control the size */
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 10px;
-        }
-
-        /* Smooth transition for page elements */
-        * {
-            transition: all 0.3s ease-in-out;
-        }
-
-        /* Navigation bar */
-        nav {
-            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 10;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-            padding: 10px;
-        }
-
-        nav ul li a:hover {
-            color: #ffcc00;
-        }
-
-        /* Section styling */
-        section {
-            display: none;
-            padding: 100px 20px 20px; /* Offset for fixed nav */
-            min-height: 100vh;
-            /* Remove background color to make sections transparent */
-            color: #fff;
-            margin-bottom: 60px;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        section.active {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Content wrapper with semi-transparent background */
-        .content-wrapper {
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Styling for headings */
-        h1 {
-            font-size: 2.5em;
-            color: #ffcc00; /* Gold color */
-            text-align: center;
-            margin-top: 0;
-        }
-
-        h2 {
-            color: #ffcc00;
-            text-align: center;
-        }
-
-        /* Style for paragraphs */
-        p {
-            text-align: justify;
-            font-size: 1.1em;
-            line-height: 1.6em;
-        }
-
-        /* Styling for images */
-
-        img.full-width {
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 20px 0;
-            border-radius: 10px;
-        }
-
-        img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        /* Button styling */
-        button {
-            background-color: #ffcc00;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
-            margin-top: 20px;
-            border-radius: 5px;
-            color: #000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
-
-        button:hover {
-            background-color: #ff9900;
-            box-shadow: 0 6px 8px rgba(0,0,0,0.3);
-        }
-
-        /* Add smooth transition between sections */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Hover effect for links */
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive design for smaller devices */
-        @media (max-width: 768px) {
-            nav ul li {
-                display: block;
-                margin: 5px 0;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            p {
-                font-size: 1em;
-            }
-
-            img.profile-pic {
-                width: 360px;
-            }
-        }
-    </style>
 </head>
 
 <body>
     <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="#" onclick="showSection('home')">Home</a></li>
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-menu">
+            <li><a href="#home" onclick="closeNav()">Home</a></li>
             <li><a href="https://drive.google.com/file/d/1Ps3q2yqtK-QRXZe_kkQ95Wm1wV0Y1JUB/view?usp=sharing" target="_blank">CV</a></li>
-            <li><a href="#" onclick="showSection('research')">Research</a></li>
-            <li><a href="#" onclick="showSection('aboutme')">About Me</a></li>
-            <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            <li><a href="#research" onclick="closeNav()">Research</a></li>
+            <li><a href="#aboutme" onclick="closeNav()">About Me</a></li>
+            <li><a href="#contact" onclick="closeNav()">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="active">
-        <div class="content-wrapper">
+    <!-- Hero Banner -->
+    <div class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
             <h1>Nicolás Monsalves</h1>
-            <p>I am Nicolás Monsalves. I hold a PhD in Astronomy from the University of La Serena. I am currently a research fellow at the University of Tor Vergata, Italy, in the ERC-funded BHianca Group. My independent research focuses on the observational analysis of massive stars, a field that presents significant astrophysical challenges due to the rarity and complexity of these systems. I am particularly enthusiastic about how the upcoming era of big data will enable the statistical studies needed to advance our understanding of their evolution. In parallel, I also contribute to two projects within the BHianca group: the development of machine learning methods for the classification of astronomical transients, and the search for optical counterparts of neutron star and black hole mergers, as part of the group’s long-term observing programme with ESO/VLT.</p>
-            <img src="assets/img/mi_foto.jpg" alt="Nicolás Monsalves" class="profile-pic">
+            <p>Astronomer &middot; University of Tor Vergata</p>
+        </div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="about">
+        <div class="content-wrapper">
+            <img src="assets/img/new_picture.jpeg" alt="Nicolás Monsalves" class="profile-pic">
+            <p>I am Nicolás Monsalves, an astronomer with a PhD from the University of La Serena. I am currently a research fellow at the University of Tor Vergata, Italy, within the ERC-funded BHianca Group. I am passionate about data-driven methods and how to extract answers from the vast amounts of data available today, applying state-of-the-art algorithms to open problems in astronomy. During my PhD I focused on massive stars and stellar variability, and during my postdoc I am centering my work on chasing transients and observational techniques.</p>
         </div>
     </section>
 
     <!-- Research Section -->
     <section id="research">
-        <div class="content-wrapper">
+        <div class="content-wrapper content-wrapper--light">
             <h1>My Research</h1>
-            <p>My research has been focused, on one side, on photometric stellar variability, particularly periodic variable stars. Through these studies, we can unveil fundamental astrophysical laws, such as the period-luminosity relation and test models of stellar structure and evolution. In preparation for upcoming multi-epoch photometric surveys and their spectroscopic counterparts (e.g., Vera Rubin and 4MOST), I have been working on the efficient classification of periodic variable stars in large datasets. On the other side, I am interested in massive stars, specifically eclipsing binaries. From these objects, we can estimate dynamical masses, constrain stellar evolution models and binary interaction products. In order to progress in the knowledge of the aforementioned areas, I have been training myself in the use of advanced data processing techniques such as machine learning, in particular deep learning techniques.</p>
-            
-            <h2>Stellar Variability</h2> 
-            <p> My early research focused on the eccentricity of eclipsing binaries, aiming to address circularization and the impact of tidal forces. I realized that inaccurate period estimations limited our ability to observe periodic light curves and accurately estimate orbital eccentricity. Due to the inability to isolate this problem, I developed a general framework to classify periodic variable stars and detect faulty periods efficiently. My deep learning algorithm distinguishes between seven types of variable stars, including Classical Cepheid, RR Lyrae, and Eclipsing Binaries. The methodology achieved a performance similar to other deep learning and machine learning approaches. However, our method has two main advantages over previous studies: (1) the identification of miscalculated periods, which is fundamental for obtaining astrophysical relationships, such as the period-luminosity, and (2) the improvement in computational time cost. <li><a href="https://ui.adsabs.harvard.edu/abs/2024arXiv240811960M/abstract">Link to the work</a></li> </p>
+
+            <h2>Application of Convolutional Neural Networks to time domain astrophysics. 2D image analysis of OGLE light curves.</h2>
+            <p>In this work we develop an image recognition model using convolutional neural networks with compact 2D image representations of light curves, enabling the classification of half a million sources in 180 seconds with state-of-the-art accuracy.</p>
+            <ul>
+                <li><a href="https://www.aanda.org/articles/aa/full_html/2024/11/aa49995-24/aa49995-24.html" target="_blank">Paper</a></li>
+                <li><a href="https://github.com/Monsalves-Gonzalez-N/Paper_OGLE" target="_blank">GitHub</a></li>
+            </ul>
             <img src="assets/img/architecture.jpg" alt="Stellar variability" class="full-width">
-    
-            <h2>Massive Stars</h2>
-            <p>My second research focus is on massive stars. I have extended the Hot Luminous OBA star candidate catalog using Gaia DR3 data and developed a balanced random forest algorithm to identify O and early B-type stars. Our new sample, limited to stars with G &lt; 12 magnitude, doubles the known number of massive stars. Additionally, we implemented an automated method for detecting spectral lines and calculating equivalent widths (EW) from large-scale spectral datasets such as LAMOST.</p>
+
+            <h2>Astrophotometric Search for Massive Stars in the Milky Way: Confronting Random Forest Predictions with Available Spectroscopy</h2>
+            <p>In this work we present a catalog of moderate to high probability massive star candidates in the Milky Way. We extended the Hot Luminous OBA star candidate catalog using Gaia DR3 data and developed a balanced random forest algorithm to identify O and early B-type stars.</p>
+            <ul>
+                <li><a href="https://www.aanda.org/articles/aa/full_html/2025/12/aa54880-25/aa54880-25.html" target="_blank">Paper</a></li>
+                <li><a href="https://cdsarc.cds.unistra.fr/viz-bin/cat/J/A+A/704/A155" target="_blank">Catalog</a></li>
+            </ul>
             <img src="assets/img/massive_stars.jpg" alt="Massive stars" class="full-width">
+
+            <h2>Collaborations</h2>
+            <div class="img-grid">
+                <div class="img-grid-item img-grid-item--wide">
+                    <p><a href="https://ui.adsabs.harvard.edu/abs/2025A%26A...693A.306F/abstract" target="_blank">Stellar atmospheric parameters and chemical abundances of ~5 million stars from S-PLUS multiband photometry</a></p>
+                    <img src="assets/img/splus.png" alt="S-PLUS stellar parameters">
+                </div>
+                <div class="img-grid-item">
+                    <p><a href="https://www.aanda.org/articles/aa/pdf/2025/12/aa54688-25.pdf" target="_blank">Stream automatic detection with convolutional neural networks</a></p>
+                    <img src="assets/img/sadCNN.png" alt="Stream automatic detection with CNNs">
+                </div>
+                <div class="img-grid-item">
+                    <p><a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260210945C/abstract" target="_blank">A search for new symbiotic stars in the Milky Way: Using machine learning techniques applied to photometric databases</a></p>
+                    <img src="assets/img/simbiotic.png" alt="Symbiotic stars in the Milky Way">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -240,24 +86,24 @@
             <h1>About Me</h1>
             <p>My academic journey began at the University of La Serena, where I joined a small but growing astronomy group. This close-knit environment allowed me to build strong relationships with my professors and colleagues. After completing my undergraduate degree, I won the ANID scholarship, which enabled me to pursue a PhD at the University.</p>
             <img src="assets/img/uls.jpg" alt="University of La Serena" class="medium-width">
-    
+
             <h2>La Serena School for Data Science</h2>
             <p>I have actively participated in the "La Serena School for Data Science: Applied Tools for Data-Driven Sciences," organized by the Association of Universities for Research in Astronomy (AURA). In 2021, I was selected as a student, and since then, I have been participating as a Teacher Assistant every year. I love teaching and helping students realize their potential in the exciting field of data science.</p>
             <img src="assets/img/lssds.jpg" alt="La Serena School for Data Science" class="full-width">
             <p class="image-credit">© 2023 NOIRLab/NSF/AURA/G.Damke</p>
+
             <h2>Hobbies</h2>
-    <p>Outside of work, I enjoy:</p>
-    <ul>
-        <li>Spending time at the beach</li>
-        <li>Reading books</li>
-        <li>Drinking mate</li>
-        <li>Beach volleyball (both beach and indoor)</li>
-        <li>Surfing</li>
-        <li>Cruising on a longboard</li>
-        <li>Football</li>
-        <li>Ping Pong</li>
-    </ul>
-    
+            <p>Outside of work, I enjoy:</p>
+            <ul>
+                <li>Spending time at the beach</li>
+                <li>Reading books</li>
+                <li>Drinking mate</li>
+                <li>Beach volleyball (both beach and indoor)</li>
+                <li>Surfing</li>
+                <li>Cruising on a longboard</li>
+                <li>Football</li>
+                <li>Ping Pong</li>
+            </ul>
         </div>
     </section>
 
@@ -271,31 +117,27 @@
                 <li><a href="mailto:nicolas.monsalves@userena.cl">Email</a></li>
                 <li><a href="https://github.com/Monsalves-Gonzalez-N" target="_blank">GitHub</a></li>
                 <li><a href="https://drive.google.com/file/d/1Ps3q2yqtK-QRXZe_kkQ95Wm1wV0Y1JUB/view?usp=sharing" target="_blank">CV</a></li>
-                
             </ul>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Nicolás Monsalves | All rights reserved.</p>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Nicolás Monsalves | All rights reserved.</p>
     </footer>
 
     <script>
-        // Function to display the active section with a fade-in effect
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-                section.style.opacity = '0';
-            });
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add('active');
-            setTimeout(() => {
-                activeSection.style.opacity = '1';
-            }, 50);
+        function closeNav() {
+            document.getElementById('nav-menu').classList.remove('open');
+            document.querySelector('.nav-toggle').classList.remove('open');
+        }
+
+        function toggleNav() {
+            const menu = document.getElementById('nav-menu');
+            const btn = document.querySelector('.nav-toggle');
+            menu.classList.toggle('open');
+            btn.classList.toggle('open');
         }
     </script>
 </body>
 </html>
-
