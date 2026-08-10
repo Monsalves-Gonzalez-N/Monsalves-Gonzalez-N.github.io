@@ -178,6 +178,34 @@ h2 {
     margin: 48px 0 16px;
 }
 
+h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: var(--black);
+    text-align: left;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    margin: 36px 0 12px;
+}
+
+.tag {
+    display: inline-block;
+    vertical-align: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 4px 8px;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
 p {
     text-align: left;
     font-size: 1em;
@@ -260,7 +288,8 @@ img.medium-width {
 
 /* ===== LIGHT VARIANT (Research) ===== */
 .content-wrapper--light h1,
-.content-wrapper--light h2 {
+.content-wrapper--light h2,
+.content-wrapper--light h3 {
     color: var(--black);
 }
 
