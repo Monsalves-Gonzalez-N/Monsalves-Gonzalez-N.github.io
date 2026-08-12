@@ -48,13 +48,17 @@
 
             <h2>Ongoing work</h2>
 
-            <h3>Finding kilonova candidates in the Roman Space Telescope with transformers <span class="tag">In progress</span></h3>
-            <p>I am developing a transformer-based methodology to identify kilonova candidates in the Roman Space Telescope survey. With a 5-day cadence, a kilonova is caught in only a handful of epochs, so the model has to classify from very few multi-band points. Attention over those epochs shows which detections and upper limits drive the decision.</p>
+            <h3>Finding kilonovae in the Nancy Grace Roman Space Telescope with transformers <span class="tag">In progress</span></h3>
+            <p>I am developing a transformer-based methodology to identify kilonova candidates in the Roman survey. With a 5-day cadence, a kilonova is caught in only a handful of epochs, so the model has to classify from very few multi-band points. Attention over those epochs shows which detections and upper limits drive the decision.</p>
             <img src="assets/img/kilonova_transformer.gif" alt="Attention diagram of the transformer over Roman epochs" class="full-width">
 
             <h3>A Claude Code skill for fast VLT ToO trigger decisions <span class="tag">In use</span></h3>
             <p>Our group runs a Large Programme at the VLT, and when a GCN circular arrives someone has to decide within minutes whether the target is worth triggering. I built a Claude Code skill that takes the raw circular and returns a single quicklook report: the localization region and the galaxies inside it with their chance-coincidence probabilities, nested finding charts, magnitude decay predictions, and the visibility from Paranal. It turns a scattered, manual half-hour into one command. The skill is finished and now part of our observing shifts, where I keep it maintained.</p>
             <img src="assets/img/too_quicklook_skill.gif" alt="Demo of the ToO quicklook Claude Code skill" class="full-width">
+
+            <h3>Characterizing the variability of massive stars with TESS <span class="tag">In progress</span></h3>
+            <p>Here I apply the <a href="https://www.aanda.org/articles/aa/full_html/2024/11/aa49995-24/aa49995-24.html" target="_blank">convolutional neural network</a> I developed during my PhD to characterize the variability of 3557 OB stars observed by TESS across 71 sectors. The model classifies a phase-folded light curve in milliseconds, so we do not have to commit to a single best period per star. We fold and inspect every candidate period from Lomb-Scargle and autocorrelation, almost half a million in total, and the classifier tells us which ones are periodic variations.</p>
+            <img src="assets/img/tess_massive_variability.gif" alt="Phase-folded 2D histogram of a TESS light curve with its classification probability" class="small-width">
 
             <hr>
 

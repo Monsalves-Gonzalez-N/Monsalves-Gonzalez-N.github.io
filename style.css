@@ -278,6 +278,15 @@ img.medium-width {
     border-radius: 4px;
 }
 
+img.small-width {
+    width: 45%;
+    max-width: 369px;
+    height: auto;
+    display: block;
+    margin: 24px auto;
+    border-radius: 4px;
+}
+
 .image-credit {
     text-align: center;
     font-size: 0.75em;
