@@ -7,20 +7,29 @@
     <title>Nicolás Monsalves - Personal Page</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/img/favicon.png">
+    <script>
+        // Set before first paint, otherwise the reveal targets flash in and then hide.
+        if (
+            'IntersectionObserver' in window &&
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ) {
+            document.documentElement.classList.add('js-motion');
+        }
+    </script>
 </head>
 
 <body>
     <!-- Navigation -->
     <nav>
-        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
             <span></span><span></span><span></span>
         </button>
         <ul id="nav-menu">
-            <li><a href="#home" onclick="closeNav()">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="https://drive.google.com/file/d/1Ps3q2yqtK-QRXZe_kkQ95Wm1wV0Y1JUB/view?usp=sharing" target="_blank">CV</a></li>
-            <li><a href="#research" onclick="closeNav()">Research</a></li>
-            <li><a href="#aboutme" onclick="closeNav()">About Me</a></li>
-            <li><a href="#contact" onclick="closeNav()">Contact</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#aboutme">About Me</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -145,17 +154,90 @@
     </footer>
 
     <script>
-        function closeNav() {
-            document.getElementById('nav-menu').classList.remove('open');
-            document.querySelector('.nav-toggle').classList.remove('open');
-        }
-
-        function toggleNav() {
+        (function () {
             const menu = document.getElementById('nav-menu');
-            const btn = document.querySelector('.nav-toggle');
-            menu.classList.toggle('open');
-            btn.classList.toggle('open');
-        }
+            const toggleButton = document.querySelector('.nav-toggle');
+            const navigationLinks = Array.from(menu.querySelectorAll('a[href^="#"]'));
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            function setMenuOpen(isOpen) {
+                menu.classList.toggle('open', isOpen);
+                toggleButton.classList.toggle('open', isOpen);
+                toggleButton.setAttribute('aria-expanded', String(isOpen));
+            }
+
+            toggleButton.addEventListener('click', function () {
+                setMenuOpen(!menu.classList.contains('open'));
+            });
+
+            navigationLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenuOpen(false);
+                });
+            });
+
+            if (!('IntersectionObserver' in window)) {
+                return;
+            }
+
+            const sections = navigationLinks
+                .map(function (link) {
+                    return document.querySelector(link.getAttribute('href'));
+                })
+                .filter(Boolean);
+
+            const sectionObserver = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+                        navigationLinks.forEach(function (link) {
+                            link.classList.toggle(
+                                'is-active',
+                                link.getAttribute('href') === '#' + entry.target.id
+                            );
+                        });
+                    });
+                },
+                { rootMargin: '-45% 0px -50% 0px' }
+            );
+
+            sections.forEach(function (section) {
+                sectionObserver.observe(section);
+            });
+
+            if (prefersReducedMotion.matches) {
+                return;
+            }
+
+            const revealTargets = document.querySelectorAll(
+                'img.profile-pic, img.full-width, img.medium-width, img.small-width, .img-grid-item'
+            );
+
+            document.querySelectorAll('.img-grid').forEach(function (grid) {
+                Array.from(grid.children).forEach(function (item, index) {
+                    item.style.transitionDelay = index * 70 + 'ms';
+                });
+            });
+
+            const revealObserver = new IntersectionObserver(
+                function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+                        entry.target.classList.add('is-revealed');
+                        observer.unobserve(entry.target);
+                    });
+                },
+                { rootMargin: '0px 0px -12% 0px', threshold: 0.1 }
+            );
+
+            revealTargets.forEach(function (target) {
+                revealObserver.observe(target);
+            });
+        })();
     </script>
 </body>
 </html>
