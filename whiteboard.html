@@ -230,6 +230,7 @@
       <hr>
       <button data-act="tidy">Arrange in a grid</button>
       <button data-act="fit">Fit to screen</button>
+      <button data-act="full" id="fullBtn">Full screen</button>
       <hr>
       <button data-act="clear" class="danger">Clear the board</button>
     </div>
@@ -828,7 +829,48 @@
     if(act === 'png') exportPNG();
     if(act === 'fit') fit();
     if(act === 'tidy') tidy();
+    if(act === 'full') toggleFullscreen();
   });
+
+  /* ---------- full screen ---------- */
+  const fullBtn = document.getElementById('fullBtn');
+  function isFullscreen(){ return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+  function enterFullscreen(){
+    const el = document.documentElement;
+    const request = el.requestFullscreen || el.webkitRequestFullscreen;
+    if(request) return request.call(el);
+  }
+  function exitFullscreen(){
+    const leave = document.exitFullscreen || document.webkitExitFullscreen;
+    if(leave) return leave.call(document);
+  }
+  function toggleFullscreen(){
+    try{
+      if(isFullscreen()) exitFullscreen();
+      else enterFullscreen();
+    }catch(e){
+      toast('This browser blocked full screen');
+    }
+  }
+  function syncFullLabel(){
+    fullBtn.textContent = isFullscreen() ? 'Leave full screen' : 'Full screen';
+    applyView();
+  }
+  document.addEventListener('fullscreenchange', syncFullLabel);
+  document.addEventListener('webkitfullscreenchange', syncFullLabel);
+
+  /* Arriving with ?fs=1 from the home page: the browser only grants full
+     screen inside a user gesture, and opening a tab is not one, so we arm the
+     request on whatever the first interaction here turns out to be. */
+  if(new URLSearchParams(location.search).get('fs') === '1'){
+    const armed = () => {
+      document.removeEventListener('pointerdown', armed, true);
+      document.removeEventListener('keydown', armed, true);
+      if(!isFullscreen()) toggleFullscreen();
+    };
+    document.addEventListener('pointerdown', armed, true);
+    document.addEventListener('keydown', armed, true);
+  }
 
   function tidy(){
     snapshot();
